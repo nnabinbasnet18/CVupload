@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/home_layout">
+
+    <LinearLayout
+        android:layout_below="@+id/formTitle"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000a13">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Job"
+            android:textColor="#fff"
+            android:textSize="35sp"
+            android:padding="5dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_style"
+            android:padding="5dp"
+            android:id="@+id/search_job"
+            android:hint="Search Job"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:layout_margin="5dp"
+                android:id="@+id/job_category"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+            <Spinner
+                android:layout_margin="5dp"
+                android:background="@drawable/edittext_style"
+                android:id="@+id/job_type"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:layout_margin="5dp"
+                android:background="@drawable/edittext_style"
+                android:id="@+id/job_education"
+                android:padding="5dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+            <Spinner
+                android:layout_margin="5dp"
+                android:background="@drawable/edittext_style"
+                android:id="@+id/job_location"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:layout_margin="5dp"
+                android:background="@drawable/edittext_style"
+                android:id="@+id/job_ownership"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                />
+            <Button
+                android:background="@drawable/button_style"
+                android:textColor="#ffff"
+                android:textSize="20sp"
+                android:text="Find Now"
+                android:id="@+id/find"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
