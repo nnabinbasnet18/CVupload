@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,12 +27,14 @@ public class NavigationDrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getFragmentManager().beginTransaction().replace(R.id.container,new RecycleView_job()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.container,new RecycleView_job()).commit();
 //        RecycleView_job frag = new RecycleView_job();
 //        FragmentManager manager = getSupportFragmentManager();
 //        FragmentTransaction transaction = manager.beginTransaction();
 //        transaction.add(R.id.container,frag);
 //        transaction.commit();
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +54,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        openFragment(new RecycleView_job(), "Home");
     }
 
     @Override
@@ -85,6 +89,12 @@ public class NavigationDrawerActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public void openFragment(Fragment f, String s){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,f).commit();
+        setTitle(s);
+
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -92,18 +102,17 @@ public class NavigationDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            getFragmentManager().beginTransaction().replace(R.id.container,new RecycleView_job()).commit();
-
+            openFragment(new RecycleView_job(), "Jobs");
             // Handle the camera action
         } else if (id == R.id.nav_jobs) {
 
         } else if (id == R.id.nav_post_jobs) {
-            getFragmentManager().beginTransaction().replace(R.id.container,new PostJobLoginFragment()).commit();
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,new PostJobLoginFragment()).commit();
+            openFragment(new PostJobLoginFragment(), "Post Job Ligin");
         } else if (id == R.id.nav_services)
         {
-            getFragmentManager().beginTransaction().replace(R.id.container,new ServiceFragment()).commit();
-
+           // getSupportFragmentManager().beginTransaction().replace(R.id.container,new ServiceFragment()).commit();
+        openFragment(new ServiceFragment(), "Service");
 
         } else if (id == R.id.nav_share) {
 
