@@ -12,7 +12,8 @@ import com.example.designmodal.jobchaiyo.R;
 
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<JobAttributes> {
+public class ListAdapter extends ArrayAdapter<JobAttributes>
+{
 
         private static final String LOG_TAG = ListAdapter.class.getSimpleName();
 

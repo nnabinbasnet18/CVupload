@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.designmodal.jobchaiyo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,11 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.ServiceActivityFragment" />
-        <activity android:name=".Activities.HomeActivityFragment" />
         <activity android:name=".Activities.CompanyRegisterActivity" />
-        <activity android:name=".Activities.PostJobFragementActivity" />
-        <activity android:name=".Activities.RecycleView_job"></activity>
+        <activity android:name=".Activities.Activity_Jobs_details"></activity>
     </application>
 
 </manifest>

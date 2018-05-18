@@ -27,7 +27,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.container,new RecycleView_job()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new RecycleView_job()).commit();
 //        RecycleView_job frag = new RecycleView_job();
 //        FragmentManager manager = getSupportFragmentManager();
 //        FragmentTransaction transaction = manager.beginTransaction();
@@ -102,7 +102,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            openFragment(new RecycleView_job(), "Jobs");
+            openFragment(new RecycleView_job(),"Jobs");
             // Handle the camera action
         } else if (id == R.id.nav_jobs) {
 

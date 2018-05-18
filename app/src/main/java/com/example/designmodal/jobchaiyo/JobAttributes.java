@@ -13,8 +13,11 @@ public class JobAttributes
     private String job_description;
     private String job_specification;
     private String area_name;
+    private String job_type;
+    private String company_name;
+    private String education_name;
 
-    public JobAttributes(String job_title, int vacancy_no, String experience, String deadline, String job_description, String job_specification, String area_name) {
+    public JobAttributes(String employer,String education,String job_type,String job_title, int vacancy_no, String experience, String deadline, String job_description, String job_specification, String area_name) {
         this.job_title = job_title;
         this.vacancy_no = vacancy_no;
         this.experience = experience;
@@ -22,6 +25,9 @@ public class JobAttributes
         this.job_description = job_description;
         this.job_specification = job_specification;
         this.area_name = area_name;
+        this.job_type = job_type;
+        this.company_name = employer;
+        this.education_name= education;
     }
 
     public String getJob_title() {
@@ -78,5 +84,29 @@ public class JobAttributes
 
     public void setArea_name(String area_name) {
         this.area_name = area_name;
+    }
+
+    public String getJob_type() {
+        return job_type;
+    }
+
+    public void setJob_type(String job_type) {
+        this.job_type = job_type;
+    }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
+    }
+
+    public String getEducation_name() {
+        return education_name;
+    }
+
+    public void setEducation_name(String education) {
+        this.education_name = education;
     }
 }

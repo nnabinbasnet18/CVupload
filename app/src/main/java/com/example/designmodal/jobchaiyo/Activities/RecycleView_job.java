@@ -3,13 +3,13 @@ package com.example.designmodal.jobchaiyo.Activities;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.designmodal.jobchaiyo.Adapter.RecyclerViewAdapter;
 import com.example.designmodal.jobchaiyo.DataManager.ApiClient;
@@ -26,6 +26,8 @@ import retrofit2.Response;
 public class RecycleView_job extends Fragment {
     RecyclerView recyclerView;
     TextView loading;
+    private SwipeRefreshLayout mSwipeLayout;
+
 
     public RecycleView_job() {
 
@@ -39,6 +41,7 @@ public class RecycleView_job extends Fragment {
 
         View view = inflater.inflate(R.layout.activity_recycle_view_job, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
+        mSwipeLayout = (SwipeRefreshLayout)view.findViewById(R.id.swipeRefreshLayout);
         loading = (TextView) view.findViewById(R.id.loading);
         return view;
 
@@ -50,6 +53,13 @@ public class RecycleView_job extends Fragment {
         super.onActivityCreated(savedInstanceState);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+//        mSwipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+//        {
+//            @Override
+//            public void onRefresh() {
+//                calltry();
+//            }
+//        });
 
         calltry();
     }
@@ -78,11 +88,13 @@ public class RecycleView_job extends Fragment {
                 public void onFailure(Call<List<JobAttributes>> call, Throwable t) {
                     loading.setText("Connection failed");
                     loading.setVisibility(View.VISIBLE);
+                    t.printStackTrace();
                 }
             });
-        } catch (Exception e) {
+
+        }
+        catch (Exception e)
+        {
         }
     }
-
-
 }
