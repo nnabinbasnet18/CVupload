@@ -39,6 +39,10 @@ public class Apply_Now extends AppCompatActivity {
     String content_type;
     File f;
     ProgressDialog progress;
+    String AppliedName ;
+    String AppliedEmail ;
+    String AppliedPhone ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +54,8 @@ public class Apply_Now extends AppCompatActivity {
         submit = (Button) findViewById(R.id.btn_submit);
 
 
-        String AppliedName = name.getText().toString();
-        String AppliedEmail = email.getText().toString();
-        String AppliedPhone = phone.getText().toString();
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
         StrictMode.setThreadPolicy(policy);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -120,24 +120,27 @@ public class Apply_Now extends AppCompatActivity {
                      f= new File(data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH));
                      content_type = URLConnection.guessContentTypeFromName(f.getName());
                      file_path = f.getAbsolutePath();
-                    Toast.makeText(this, "File path"+file_path, Toast.LENGTH_SHORT).show();
+                     Toast.makeText(this, "File path"+file_path, Toast.LENGTH_SHORT).show();
         }
 
     }
-
-
-
-
     private void submitcv() throws IOException {
         if (file_path==null){
             Toast.makeText(this, "Upload the cv first", Toast.LENGTH_SHORT).show();
         }else {
+            AppliedName = name.getText().toString();
+            AppliedEmail = email.getText().toString();
+            AppliedPhone = phone.getText().toString();
+
             OkHttpClient client = new OkHttpClient();
             RequestBody file_body = RequestBody.create(MediaType.parse(content_type), f);
             RequestBody request_body = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
                     .addFormDataPart("type", content_type)
                     .addFormDataPart("uploaded_file", file_path.substring(file_path.lastIndexOf("/") + 1), file_body)
+                    .addFormDataPart("full_name",AppliedName)
+                    .addFormDataPart("email",AppliedEmail)
+                    .addFormDataPart("contact",AppliedPhone)
                     .build();
             Request request = new Request.Builder()
                     .url("http://192.168.1.88/job_chaheyo/post_cv.php")
@@ -153,6 +156,9 @@ public class Apply_Now extends AppCompatActivity {
 
                 Toast.makeText(this, "Application Submitted!! Will email you soon..", Toast.LENGTH_SHORT).show();
                 file_path = null;
+                name.setText(null);
+                email.setText(null);
+                phone.setText(null);
             }
 
         }
