@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.designmodal.jobchaiyo.Fragments.PostJobLoginFragment;
 import com.example.designmodal.jobchaiyo.Fragments.ServiceFragment;
 import com.example.designmodal.jobchaiyo.R;
 
@@ -107,8 +106,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_jobs) {
 
         } else if (id == R.id.nav_post_jobs) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container,new PostJobLoginFragment()).commit();
-            openFragment(new PostJobLoginFragment(), "Post Job Ligin");
         } else if (id == R.id.nav_services)
         {
            // getSupportFragmentManager().beginTransaction().replace(R.id.container,new ServiceFragment()).commit();

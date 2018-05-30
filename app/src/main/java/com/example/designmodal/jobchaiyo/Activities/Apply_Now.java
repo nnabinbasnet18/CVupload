@@ -51,9 +51,6 @@ public class Apply_Now extends AppCompatActivity {
         name =(EditText)findViewById(R.id.full_name);
         phone = (EditText) findViewById(R.id.contact_no);
         uploadCv = (Button) findViewById(R.id.btn_cv);
-        submit = (Button) findViewById(R.id.btn_submit);
-
-
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

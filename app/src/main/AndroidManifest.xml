@@ -3,6 +3,8 @@
     package="com.example.designmodal.jobchaiyo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,15 +19,20 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.Activity_Jobs_details" />
+        <activity android:name=".Activities.Apply_Now">
+
+        </activity>
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.FirstActivity"></activity>
+        <activity android:name=".Activities.Job_Apply">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.CompanyRegisterActivity" />
-        <activity android:name=".Activities.Activity_Jobs_details"></activity>
     </application>
 
 </manifest>

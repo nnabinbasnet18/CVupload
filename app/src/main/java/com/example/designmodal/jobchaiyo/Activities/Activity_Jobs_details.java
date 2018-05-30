@@ -3,17 +3,23 @@ package com.example.designmodal.jobchaiyo.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.designmodal.jobchaiyo.R;
 
-public class Activity_Jobs_details extends AppCompatActivity {
+public class Activity_Jobs_details extends AppCompatActivity
+{
+    TextView company_name,title,vacancy,experience_required,education_required,location,type_job,vacancy_deadline,
+            specification_job,description_job;
+    Button apply_now;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        TextView company_name,title,vacancy,experience_required,education_required,location,type_job,vacancy_deadline,
-                specification_job,description_job;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__jobs_details);
 
@@ -27,8 +33,16 @@ public class Activity_Jobs_details extends AppCompatActivity {
         description_job = (TextView) findViewById(R.id.job_description);
         education_required = (TextView) findViewById(R.id.education);
         company_name = (TextView) findViewById(R.id.company);
+        apply_now = (Button) findViewById(R.id.apply_now);
 
-
+        apply_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(Activity_Jobs_details.this,Apply_Now.class);
+                startActivity(intent);
+            }
+        });
         Intent intent = getIntent();
         Bundle bd = intent.getExtras();
         if(bd != null)
@@ -59,4 +73,5 @@ public class Activity_Jobs_details extends AppCompatActivity {
 //            w1.loadUrl(Url);
         }
     }
+
 }
